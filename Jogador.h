@@ -1,7 +1,9 @@
 #pragma once
 #include <SFML/Graphics.hpp>
 #include"Animacao.h"
-class Jogador
+#include "Personagem.h"
+
+class Jogador : public Personagem
 {
 private:
 	sf::RectangleShape body;

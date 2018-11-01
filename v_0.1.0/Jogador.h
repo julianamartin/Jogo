@@ -7,7 +7,7 @@ class Jogador : public Personagem
 {
 private:
 	sf::RectangleShape body;
-	Animacao animaÃ§Ã£o;
+	Animacao animação;
 	unsigned int row;
 	float velocidade;
 	bool faceRight;

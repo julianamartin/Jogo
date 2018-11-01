@@ -3,7 +3,7 @@
 
 
 Jogador::Jogador(sf::Texture* texture, sf::Vector2u imageCount, float switchTime, float velocidade):
-animaÃ§Ã£o(texture,imageCount,switchTime)
+animação(texture,imageCount,switchTime)
 {
 	this->velocidade = velocidade;
 	row = 0;
@@ -39,8 +39,8 @@ void Jogador::Atualiza(float deltaTime)
 			faceRight = false;
 		
 	}
-	animaÃ§Ã£o.Atualiza(row, deltaTime, faceRight);
-	body.setTextureRect(animaÃ§Ã£o.uvRect);
+	animação.Atualiza(row, deltaTime, faceRight);
+	body.setTextureRect(animação.uvRect);
 	body.move(movimento);
 }
 

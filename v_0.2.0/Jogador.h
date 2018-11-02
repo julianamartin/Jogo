@@ -17,7 +17,7 @@ private:
 	bool podePular;
 
 public:
-	Jogador(sf::Texture* texture, sf::Vector2u imageCount, float switchTime, float rapidez, float alturaPulo);
+	Jogador(Texture* texture, Vector2u imageCount, float switchTime, float rapidez, float alturaPulo);
 	~Jogador();
 	void Atualiza(float deltaTime);
 	void Desenha(sf::RenderWindow& window);

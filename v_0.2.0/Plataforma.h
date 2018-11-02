@@ -7,7 +7,7 @@ class Plataforma
 private:
 	RectangleShape plataforma;
 public:
-	Plataforma(sf::Texture* texture, sf::Vector2f size, sf::Vector2f posição);
+	Plataforma(Texture* texture, Vector2f size, Vector2f posição);
 	~Plataforma();
 	void Desenha(sf::RenderWindow& window);
 	Colisor getColisão();

@@ -10,3 +10,8 @@ Personagem::Personagem()
 Personagem::~Personagem()
 {
 }
+
+void Personagem::Inicializa()
+{
+
+}

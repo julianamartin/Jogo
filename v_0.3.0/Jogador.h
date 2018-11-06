@@ -19,12 +19,13 @@ private:
 public:
 	Jogador();
 	~Jogador();
-	void Atualiza(float deltaTime);
-	void Desenha(sf::RenderWindow& window);
-	void EmColisão(sf::Vector2f direção);
-	sf::Vector2f getPosition();
+	void Atualiza(float deltaTime); // do personagem
+	void Desenha(RenderWindow& window);
+	void EmColisão(Vector2f direção);
+	Vector2f getPosition();
 	Colisor getColisão();
 	void Inicializa(Texture* texture, Vector2u imageCount, float switchTime, float rapidez, float alturaPulo);
+	void Mover(float deltaTime);
 
 };
 

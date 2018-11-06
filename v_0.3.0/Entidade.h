@@ -9,5 +9,6 @@ public:
 	Entidade();
 	~Entidade();
 	virtual void mover() = 0;
+	virtual void Inicializa() = 0;
 };
 

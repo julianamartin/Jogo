@@ -15,11 +15,11 @@ void Jogador::Atualiza(float deltaTime)
 {
 	velocidade.x = 0.0f;
 
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
+	if (Keyboard::isKeyPressed(Keyboard::Left))
 		velocidade.x -= rapidez;
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
+	if (Keyboard::isKeyPressed(Keyboard::Right))
 		velocidade.x += rapidez;
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up) && podePular)
+	if (Keyboard::isKeyPressed(Keyboard::Up) && podePular)
 	{
 		podePular = false;
 		velocidade.y = -sqrtf(2.0f * 9.79f * alturaPulo * 100.0f); //square root = 2.0f * gravidade * alturaPulo
@@ -41,7 +41,7 @@ void Jogador::Atualiza(float deltaTime)
 	}
 	animação.Atualiza(row, deltaTime, faceRight);
 	objP.setTextureRect(animação.uvRect);
-	objP.move(velocidade * deltaTime);
+	Mover(deltaTime);
 }
 void Jogador::EmColisão(sf::Vector2f direção)
 {
@@ -65,12 +65,12 @@ void Jogador::EmColisão(sf::Vector2f direção)
 
 }
 
-void Jogador::Desenha(sf::RenderWindow& window)
+void Jogador::Desenha(RenderWindow& window)
 {
 	window.draw(objP);
 }
 
-sf::Vector2f Jogador::getPosition()
+Vector2f Jogador::getPosition()
 {
 	return (objP.getPosition());
 }
@@ -90,4 +90,9 @@ void Jogador::Inicializa(Texture* texture, Vector2u imageCount, float switchTime
 	objP.setOrigin(objP.getSize() / 2.0f);
 	objP.setPosition(206.0f, 206.0f);
 	objP.setTexture(texture);
+}
+
+void Jogador::Mover(float deltaTime)
+{
+	objP.move(velocidade * deltaTime);
 }

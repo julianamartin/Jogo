@@ -7,15 +7,21 @@ Plataforma::Plataforma()
 
 Plataforma::~Plataforma()
 {
+    vector<RectangleShape*>::iterator i;
+    for(i = vPlat.begin(); i != vPlat.end(); i++)
+    {
+        delete (*i);
+    }
+
     vPlat.clear(); //dtor
 }
 
-RectangleShape Plataforma::getTijolo(int i)
+RectangleShape* Plataforma::getTijolo(int i)
 {
     return vPlat[i];
 }
 
-vector<RectangleShape> Plataforma::getPlat()
+vector<RectangleShape*> Plataforma::getPlat()
 {
     return vPlat;
 }
@@ -27,155 +33,119 @@ int Plataforma::getTam()
 
 void Plataforma::Desenha(RenderWindow& window)
 {
-    vector<RectangleShape>::iterator i;
+    vector<RectangleShape*>::iterator i;
+    RectangleShape* pRect;
 
     for(i = vPlat.begin(); i != vPlat.end(); i++)
     {
-        window.draw(*i);
+        pRect = *i;
+        window.draw(*pRect);
     }
 }
 
 void Plataforma::Inicializa1()
 {
     //4 plataformas
-    RectangleShape base(Vector2f(1920.0f, 105.0f));
-    base.setPosition(960.0f, 1027.5f);
-    base.setFillColor(Color(0, 0, 0));
-    getPlat().push_back(base);
+    float alt = 1080.0f, larg = 1920.0f;
 
-    RectangleShape p1(Vector2f(560.0f, 105.0f));
-    p1.setPosition(1640.0f, 522.5f);
-    //p1.setFillColor();
-    getPlat().push_back(p1);
+    criaBase(Vector2f(1920.0f, 105.0f), Vector2f(larg/2.0f, alt-105.0f/2.0f));
 
-    RectangleShape p2(Vector2f(400.0f, 105.0f));
-    p2.setPosition(200.0f, 802.5f);
-    getPlat().push_back(p2);
+    criaBase(Vector2f(560.0f, 105.0f), Vector2f(1640.0f, 522.5f));
 
-    RectangleShape p3(Vector2f(520.0f, 80.0f));
-    p3.setPosition(260.0f, 330.0f);
-    getPlat().push_back(p3);
+    criaBase(Vector2f(400.0f, 105.0f), Vector2f(200.0f, 802.5f));
 
-    RectangleShape p4(Vector2f(780.0f, 90.0f));
-    p4.setPosition(1142.0f, 200.0f);
-    getPlat().push_back(p4);
+    criaBase(Vector2f(520.0f, 80.0f), Vector2f(260.0f, 330.0f));
+
+    criaBase(Vector2f(780.0f, 90.0f), Vector2f(1920.0f - 390.0f, 200.0f));
 
     //3 escadas
 
-    int i;
     Vector2f tamanho(100.0f, 100.0f);
-    Vector2f posicao(1110.0f, 805.0f);
-    RectangleShape* tijolo = NULL;
+    Vector2f posicao(1110.0f, 830.0f);
 
-    for (i = 0; i < 3; i++)
+    for (int i = 0; i < 3; i++)
     {
-        tijolo = new (RectangleShape);
-        tijolo->setSize(tamanho);
-        tijolo->setPosition(posicao);
-        getPlat().push_back(*tijolo);
+        criaBase(tamanho, posicao);
 
         posicao.x += tamanho.x;
-        posicao.y += tamanho.y - 20.0f;
-
-        tijolo = NULL;
+        posicao.y -= 80.0f;
     }
 
-    posicao.x = 550.0f;
-    posicao.y = 690.0f;
+    posicao.x = 880.0f;
+    posicao.y = 670.0f;
 
-    for (i = 0; i < 4; i++)
+    for (int i = 0; i < 4; i++)
     {
-        tijolo = new (RectangleShape);
-        tijolo->setSize(tamanho);
-        tijolo->setPosition(posicao);
-        getPlat().push_back(*tijolo);
+        criaBase(tamanho, posicao);
 
+        posicao.x -= tamanho.x;
+        posicao.y -= 40.0f;
 
-        posicao.x += tamanho.x;
-        posicao.y += tamanho.y - 40.0f;
-
-        tijolo = NULL;
 
     }
 
     posicao.x = 750.0f;
-    posicao.y = 250.0f;
+    posicao.y = 300.0f;
 
-    for (i = 0; i < 3; i++)
+    for (int i = 0; i < 3; i++)
     {
-        tijolo = new (RectangleShape);
-        tijolo->setSize(tamanho);
-        tijolo->setPosition(posicao);
-        getPlat().push_back(*tijolo);
-
+        criaBase(tamanho, posicao);
 
         posicao.x += tamanho.x;
-        posicao.y += tamanho.y - 10.0f;
+        posicao.y -= 10.0f;
 
-        tijolo = NULL;
     }
+
 }
 
 void Plataforma::Inicializa2()
 {
-    RectangleShape base(Vector2f(1920.0f, 1080.0f));
-    base.setPosition(960.0f, 1027.5f);
-    getPlat().push_back(base);
+    criaBase(Vector2f(1920.0f, 150.0f), Vector2f(960.0f, 1005.0f));
+
 
     //de cima para baixo
-    RectangleShape p1(Vector2f(510.0f, 100.0f));
-    p1.setPosition(255.0f, 200.0f);
-    //p1.setFillColor();
-    getPlat().push_back(p1);
+    criaBase(Vector2f(510.0f, 100.0f), Vector2f(255.0f, 200.0f));
 
-    RectangleShape p2(Vector2f(280.0f, 100.0f));
-    p2.setPosition(755.0f, 455.0f);
-    getPlat().push_back(p2);
 
-    RectangleShape p3(Vector2f(470.0f, 80.0f));
-    p3.setPosition(235.0f, 625.0f);
-    getPlat().push_back(p3);
+    criaBase(Vector2f(280.0f, 100.0f), Vector2f(755.0f, 455.0f));
 
-    RectangleShape p4(Vector2f(380.0f, 60.0f));
-    p4.setPosition(735.0f, 775.0f);
-    getPlat().push_back(p4);
+
+    criaBase(Vector2f(470.0f, 80.0f), Vector2f(235.0f, 625.0f));
+
+
+    criaBase(Vector2f(380.0f, 60.0f), Vector2f(735.0f, 775.0f));
+
 
     //de baixo para cima
 
     int i;
-    RectangleShape* tijolo = NULL;
     Vector2f tamanho(100.0f, 100.0f);
     Vector2f posicao(1415.0f, 770.0f);
 
     for (i = 0; i < 3; i++)
     {
-        tijolo = new (RectangleShape);
-        tijolo->setSize(tamanho);
-        tijolo->setPosition(posicao);
-        getPlat().push_back(*tijolo);
+        criaBase(tamanho, posicao);
 
         posicao.x += tamanho.x;
-        posicao.y -= (tamanho.y - 30.0f);
-
-        tijolo = NULL;
-
+        posicao.y -= 40.0f;
 
     }
 
-    RectangleShape p5(Vector2f(235.0f, 90.0f));
-    p5.setPosition(1802.5f, 505.0f);
-    getPlat().push_back(p5);
+    criaBase(Vector2f(220.0f, 80.0f), Vector2f(1810.0f, 520.0f));
 
-    RectangleShape p6 (Vector2f(260.0f, 100.0f));
-    p6.setPosition(1450.0f, 415.0f);
-    getPlat().push_back(p6);
+    criaBase(Vector2f(350.0f, 80.0f), Vector2f(1400.0f, 450.0f));
 
-    RectangleShape p7(Vector2f(490.0f, 70.0f));
-    p7.setPosition(1675.0f, 250.0f);
-    getPlat().push_back(p7);
+    criaBase(Vector2f(490.0f, 70.0f), Vector2f(1675.0f, 250.0f));
 
-    RectangleShape p8(Vector2f(150.0f, 50.0f));
-    p8.setPosition(1220.0f, 200.0f);
-    getPlat().push_back(p8);
+    criaBase(Vector2f(150.0f, 50.0f), Vector2f(1220.0f, 200.0f));
+
 }
 
+void Plataforma::criaBase(Vector2f tamanho, Vector2f posicao)
+{
+    RectangleShape* base = new RectangleShape(tamanho);
+    base->setOrigin(base->getSize().x/2.0f, base->getSize().y/2.0f);
+    base->setPosition(posicao);
+    base->setFillColor (Color(0, 0, 0)); //pode colocar textura
+    vPlat.push_back(base);
+}

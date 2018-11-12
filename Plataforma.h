@@ -1,11 +1,7 @@
-#ifndef PLATAFORMA_H
-#define PLATAFORMA_H
+#ifndef _PLATAFORMA_H_
+#define _PLATAFORMA_H_
 
-#include "Graphics.hpp"
-#include "Window.hpp"
-#include "RenderWindow.hpp"
-#include "RectangleShape.hpp"
-
+#include <SFML/Graphics.hpp>
 using namespace sf;
 
 #include <iostream>
@@ -18,14 +14,15 @@ class Plataforma
         ~Plataforma();
         void Inicializa1();
         void Inicializa2();
-        RectangleShape getTijolo(int i);
-        vector<RectangleShape> getPlat();
+        RectangleShape* getTijolo(int i);
+        vector<RectangleShape*> getPlat();
         int getTam();
         void Desenha(RenderWindow& window);
+        void criaBase(Vector2f tamanho, Vector2f posicao);
 
 
     protected:
-        vector<RectangleShape> vPlat;
+        vector<RectangleShape*> vPlat;
 
 };
 

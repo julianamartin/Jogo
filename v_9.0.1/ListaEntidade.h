@@ -10,5 +10,7 @@ public:
 	~ListaEntidade();
 	void Desenhalista();
 	void InicializaLista();
+	void Incluir(Entidade* elemento);
+	void testaColisao(Jogador* jog);
 };
 

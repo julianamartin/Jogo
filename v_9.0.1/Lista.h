@@ -1,27 +1,32 @@
 #pragma once
+#include "Entidade.h"
 
 template <class TIPO>
 class Lista
 {
 public:
-	class Elemento
-	{
+	template <class TIPO>
+	class Elemento {
 	private:
-		Elemento* pProx;
+		Elemento<TIPO>* pProx;
+		TIPO* pInfo; //Faz ponteiro???
 	public:
-		Elemento();
-		~Elemento();
-		Elemento* getProx() { return pProx; }
-		void setProx(Elemento* pElem) { pProx = pElem; }
+		Elemento() { }
+		~Elemento() { }
+		Elemento<TIPO>* getProx() { return pProx; }
+		void setProx(Elemento<TIPO>* pElem) { pProx = pElem; }
+		void setInfo(TIPO* info) { pInfo = info;  }
+		TIPO* getInfo() { return pInfo; }
 	};
 
 private:
-	Elemento* pPrim;
-	Elemento* pAtual;
+	Elemento<TIPO>* pPrim;
+	Elemento<TIPO>* pAtual;
 public:
 	Lista();
-	~Lista();
-	void incluir(Elemento *p);
+	~Lista() { }
+	void incluir(TIPO* pTipo);
+	Elemento<TIPO>* getPrim();
 };
 
 template <class TIPO>
@@ -33,7 +38,7 @@ Lista<TIPO>::Lista()
 template <class TIPO>
 Lista<TIPO>::~Lista()
 {
-	Elemento* pAux = pPrim;
+	Elemento<TIPO>* pAux = pPrim;
 
 	while (pAux != NULL)
 	{
@@ -44,11 +49,12 @@ Lista<TIPO>::~Lista()
 
 }
 template<class TIPO>
-void Lista<TIPO>::incluir(Lista<TIPO>::Elemento* p)
+void Lista<TIPO>::incluir(TIPO* pTipo)
 {
-	Elemento* pAux = NULL;
+	Elemento<TIPO>* pAux = NULL;
 
-	pAux = new Elemento(p);
+	pAux = new Elemento<TIPO>;
+	pAux->setInfo(pTipo); //Trocar tipo por entidade
 
 	if (pPrim == NULL)
 	{
@@ -61,11 +67,9 @@ void Lista<TIPO>::incluir(Lista<TIPO>::Elemento* p)
 		pAtual = pAux;
 	}
 }
+
 template<class TIPO>
-Lista<TIPO>::Elemento::Elemento()
+Lista<TIPO>::Elemento<TIPO>* Lista<TIPO>::getPrim()
 {
-}
-template<class TIPO>
-Lista<TIPO>::Elemento::~Elemento()
-{
+	return pPrim;
 }

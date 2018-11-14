@@ -11,7 +11,8 @@ private:
 public:
 	Fase1();
 	~Fase1();
-	void DesenhaElem();
+	//void DesenhaElem();
 	void Executar();
+	void criaElem();
 };
 

@@ -2,29 +2,28 @@
 #include "Fase1.h"
 
 
-Fase1::Fase1():
-Fase()
+Fase1::Fase1() :
+	Fase()
 {
-	this->window = window;
+	n_conta = (rand() % 5) + 5;
+	n_prova = (rand() % 5) + 5;
+	n_alfajor = (rand() % 5) + 5;
+	n_cerveja = (rand() % 5) + 5;
+	plat.Inicializa1();
+	criaElem();
 }
 Fase1::~Fase1()
 {
 }
-/* void Fase1::Inicializa(RenderWindow* window, float deltaTime, bool multiplayer)
-{
-	this->window = window;
-	this->deltaTime = deltaTime;
-	this->multiplayer = multiplayer;
-
-	//DesenhaElem();
-} */
-void Fase1::DesenhaElem()
+void Fase1::Executar()
 {
 	float deltaTime = 0.0f;
 	Clock clock;
-	cout << multiplayer;
+	jog1.setPosicao1();
+	if (multiplayer)
+		jog2.setPosicao1();
 
-	while (getWindow()->isOpen())
+	while (window->isOpen())
 	{
 		deltaTime = clock.restart().asSeconds();
 		if (deltaTime > 1.0f / 20.0f)
@@ -42,36 +41,52 @@ void Fase1::DesenhaElem()
 		}
 
 		jog1.Atualiza1(deltaTime);
-		Vector2f direção;
-		for (Plataforma& plataforma : plataformas) //DEPOIS DO ATUALIZAAAA
-		{
-			if (plataforma.getColisão().Colidiu(jog1.getColisão(), direção, 1.0f))
-			{
-				jog1.EmColisão(direção);
-			}
-			if (plataforma.getColisão().Colidiu(jog2.getColisão(), direção, 1.0f))
-			{
-				jog2.EmColisão(direção);
-			}
-		}
-	
+		verificaColisao();
+
 		window->clear(Color(150, 150, 150));
 		jog1.Desenha(*window);
+
 		if (multiplayer)
 		{
 			jog2.Atualiza2(deltaTime);
 			jog2.Desenha(*window);
 		}
-		for (Plataforma& plataforma : plataformas)
-		{
-			plataforma.Desenha(*window);
-		}
+
+		plat.Desenha(*window);
 		window->display();
 
 	}
 }
 
-void Fase1::Executar()
+void Fase1::criaElem()
 {
+	int i;
+	Conta* pC = NULL;
+	for (i = 0; i < n_conta; i++)
+	{
+		pC = new Conta; //classe nao está bem definida
+		listaEnt.Incluir(static_cast<Entidade*> (pC));
+	}
+
+	Prova* pP = NULL;
+	for (i = 0; i < n_prova; i++)
+	{
+		pP = new Prova;
+		listaEnt.Incluir(static_cast<Entidade*> (pP));
+	}
+
+	Alfajor* pAl = NULL;
+	for (i = 0; i < n_alfajor; i++)
+	{
+		pAl = new Alfajor;
+		listaEnt.Incluir(static_cast<Entidade*> (pAl));
+	}
+
+	Cerveja* pCe = NULL;
+	for (i = 0; i < n_cerveja; i++)
+	{
+		pCe = new Cerveja;
+		listaEnt.Incluir(static_cast<Entidade*> (pCe));
+	}
 
 }

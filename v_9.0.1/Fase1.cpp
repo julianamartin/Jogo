@@ -42,16 +42,16 @@ void Fase1::DesenhaElem()
 		}
 
 		jog1.Atualiza1(deltaTime);
-		Vector2f direÁ„o;
+		Vector2f dire√ß√£o;
 		for (Plataforma& plataforma : plataformas) //DEPOIS DO ATUALIZAAAA
 		{
-			if (plataforma.getColis„o().Colidiu(jog1.getColis„o(), direÁ„o, 1.0f))
+			if (plataforma.getColis√£o().Colidiu(jog1.getColis√£o(), dire√ß√£o, 1.0f))
 			{
-				jog1.EmColis„o(direÁ„o);
+				jog1.EmColis√£o(dire√ß√£o);
 			}
-			if (plataforma.getColis„o().Colidiu(jog2.getColis„o(), direÁ„o, 1.0f))
+			if (plataforma.getColis√£o().Colidiu(jog2.getColis√£o(), dire√ß√£o, 1.0f))
 			{
-				jog2.EmColis„o(direÁ„o);
+				jog2.EmColis√£o(dire√ß√£o);
 			}
 		}
 	

@@ -20,12 +20,12 @@ void Fase2::DesenhaElem()
 
 	while (window->isOpen())
 	{
-		Vector2f direÁ„o;
+		Vector2f dire√ß√£o;
 		for (Plataforma& plataforma : plataformas) //DEPOIS DO ATUALIZAAAA
 		{
-			if (plataforma.getColis„o().Colidiu(jog1.getColis„o(), direÁ„o, 1.0f))
+			if (plataforma.getColis√£o().Colidiu(jog1.getColis√£o(), dire√ß√£o, 1.0f))
 			{
-				jog1.EmColis„o(direÁ„o);
+				jog1.EmColis√£o(dire√ß√£o);
 			}
 		}
 		for (Plataforma& plataforma : plataformas)

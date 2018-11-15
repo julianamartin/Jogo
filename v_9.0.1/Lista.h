@@ -51,9 +51,9 @@ Lista<TIPO>::~Lista()
 template<class TIPO>
 void Lista<TIPO>::incluir(TIPO* pTipo)
 {
-	Elemento<TIPO>* pAux = NULL;
+	Lista<TIPO>::Elemento<TIPO>* pAux = NULL;
 
-	pAux = new Elemento<TIPO>;
+	pAux = new Lista<TIPO>::Elemento<TIPO>;
 	pAux->setInfo(pTipo); //Trocar tipo por entidade
 
 	if (pPrim == NULL)

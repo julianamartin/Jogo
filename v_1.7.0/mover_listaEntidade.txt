@@ -1,0 +1,10 @@
+
+void ListaEntidade::Mover(float deltaTime)
+{
+	Lista<Entidade>::Elemento<Entidade>* pAux = objLEnt.getPrim();
+	while (pAux != NULL)
+	{
+		pAux->getInfo()->Mover(deltaTime);
+		pAux = pAux->getProx();
+	}
+}

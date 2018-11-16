@@ -1,12 +1,14 @@
 #pragma once
-class Tempo
+#include "pch.h"
+#include "Atributo.h"
+
+class Tempo : public Atributo
 {
 private:
-	int valor;
+
 public:
 	Tempo();
 	~Tempo();
-	void Desenha();
-	void DiminuiValor(float v);
+	void Atualiza(float deltaTime);
 };
 

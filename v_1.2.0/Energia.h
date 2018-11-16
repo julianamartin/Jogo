@@ -1,12 +1,13 @@
 #pragma once
-class Energia
+#include "pch.h"
+#include "Atributo.h"
+
+class Energia : public Atributo
 {
 private:
-	int valor;
+
 public:
 	Energia();
 	~Energia();
-	void Desenha();
-	void DiminuiValor(float v);
 };
 

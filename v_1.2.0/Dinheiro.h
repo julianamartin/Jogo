@@ -1,12 +1,12 @@
 #pragma once
-class Dinheiro
+#include "Atributo.h"
+
+class Dinheiro : public Atributo
 {
 private:
-	int valor;
+
 public:
 	Dinheiro();
 	~Dinheiro();
-	void Desenha();
-	void DiminuiValor(float v);
 };
 

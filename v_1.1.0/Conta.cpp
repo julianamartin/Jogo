@@ -31,7 +31,7 @@ void Conta::setPosicao1()
 	else
 	{
 		if (quantidade == 2)
-			posicao = Vector2f(100.0f, 740.0f);
+			Vector2f posicao(100.0f, 740.0f);
 		else
 		{
 			if (quantidade == 3)
@@ -63,6 +63,7 @@ void Conta::setPosicao1()
 		} 
 		
 	}
+
 	objP.setPosition(posicao);
 }
 
@@ -107,10 +108,8 @@ void Conta::setPosicao2()
 
 		}
 
-		objP.setPosition(posicao);
-
-
 	}
+	objP.setPosition(posicao);
 }
 
 void Conta::Mover(float deltaTime)

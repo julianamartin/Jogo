@@ -16,10 +16,11 @@ Conta::~Conta()
 
 void Conta::Inicializa()
 {
-	textura.loadFromFile("conta.png");
-	objP.setTexture(&textura);
+	/*textura.loadFromFile("cerveja.png");
+	objP.setTexture(&textura);*/
+	objP.setFillColor(Color::Blue);
 	objP.setSize(Vector2f(50.0f, 70.0f));
-	objP.setOrigin(objP.getSize() / 2.0f);
+	objP.setOrigin(objP.getSize());
 
 }
 
@@ -28,31 +29,31 @@ void Conta::setPosicao()
 	Vector2f posicao;
 	//setando a posicao
 	if (quantidade == 1)
-		posicao = Vector2f(260.0f, 290.0f);
+		posicao = Vector2f(260.0f, 330.0f);
 	else
 	{
 		if (quantidade == 2)
-			posicao = Vector2f (1230.0f, 140.0f);
+			posicao = Vector2f (1230.0f, 180.0f);
 		else
 		{
 			if (quantidade == 3)
-				posicao = Vector2f(1545.0f, 470.0f);
+				posicao = Vector2f(1545.0f, 510.0f);
 			else
 			{
 				if (quantidade == 4)
-					posicao = Vector2f(200.0f, 685.0f);
+					posicao = Vector2f(200.0f, 725.0f);
 				else
 				{
 					if (quantidade == 5)
-						posicao = Vector2f(1140.0f, 730.0f);
+						posicao = Vector2f(1140.0f, 770.0f);
 					else
 					{
 						if (quantidade == 6)
-							posicao = Vector2f(870.0f, 970.0f);
+							posicao = Vector2f(870.0f, 1010.0f);
 						else
 						{
 							if (quantidade == 7)
-								posicao = Vector2f(1670.0f, 970.0f);
+								posicao = Vector2f(1670.0f, 1010.0f);
 						}
 
 					}

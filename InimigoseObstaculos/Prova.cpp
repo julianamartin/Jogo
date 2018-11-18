@@ -1,53 +1,58 @@
 #include "pch.h"
-#include "Cerveja.h"
+#include "Prova.h"
 
-Cerveja::Cerveja()
+
+Prova::Prova()
 {
 	quantidade++;
-	tempo = 0.0f;
-	dinheiro = 0.0f;
+	velocidade.x = 90.0f;
 }
-Cerveja::~Cerveja()
+
+
+Prova::~Prova()
 {
 	quantidade--;
 }
-void Cerveja::Inicializa()
+
+void Prova::Inicializa()
 {
-	textura.loadFromFile("cerveja.png");
-	objP.setTexture(&textura);
+	/*textura.loadFromFile("cerveja.png");
+	//objP.setTexture(&textura);*/
+	objP.setFillColor(Color::Red);
 	objP.setSize(Vector2f(50.0f, 70.0f));
 	objP.setOrigin(objP.getSize());
-}
-void Cerveja::setPosicao1()
+
+} 
+void Prova::setPosicao1()
 {
 	Vector2f posicao;
 	//setando a posicao
 	if (quantidade == 1)
-		posicao = Vector2f(530.0f, 1010.0f);
+		posicao = Vector2f(90.0f, 340.0f);
 	else
 	{
 		if (quantidade == 2)
-			posicao = Vector2f(385.0f, 720.0f);
+			posicao = Vector2f(1415.0f, 180.0f);
 		else
 		{
 			if (quantidade == 3)
-				posicao = Vector2f(1450.0f, 1010.0f);
+				posicao = Vector2f(1670.0f, 810.0f);
 			else
 			{
 				if (quantidade == 4)
-					posicao = Vector2f(1630.0f, 180.0f);
+					posicao = Vector2f(1805.0f, 1010.0f);
 				else
 				{
 					if (quantidade == 5)
-						posicao = Vector2f(670.0f, 570.0f);
+						posicao = Vector2f(690.0f, 1010.0f);
 					else
 					{
 						if (quantidade == 6)
-							posicao = Vector2f(400.0f, 330.0f);
+							posicao = Vector2f(780.0f, 610.0f);
 						else
 						{
 							if (quantidade == 7)
-								posicao = Vector2f(1450.0f, 510.0f);
+								posicao = Vector2f(340.0f, 1010.0f);
 						}
 
 					}
@@ -59,40 +64,40 @@ void Cerveja::setPosicao1()
 		}
 
 	}
+
 	objP.setPosition(posicao);
 }
 
-void Cerveja::setPosicao2()
+void Prova::setPosicao2()
 {
 	Vector2f posicao;
-
 	//setando a posicao
 	if (quantidade == 1)
-		posicao = Vector2f(300.0f, 280.0f);
+		posicao = Vector2f(470.0f, 285.0f);
 	else
 	{
 		if (quantidade == 2)
-			posicao = Vector2f(1290.0f, 520.0f);
+			posicao = Vector2f(675.0f, 490.0f);
 		else
 		{
 			if (quantidade == 3)
-				posicao = Vector2f(1550.0f, 780.0f);
+				posicao = Vector2f(400.0f, 660.0f);
 			else
 			{
 				if (quantidade == 4)
-					posicao = Vector2f(830.0f, 490.0f);
+					posicao = Vector2f(1770.0f, 260.0f);
 				else
 				{
 					if (quantidade == 5)
-						posicao = Vector2f(1675.0f, 990.0f);
+						posicao = Vector2f(1420.0f, 520.0f);
 					else
 					{
 						if (quantidade == 6)
-							posicao = Vector2f(1770.0f, 555.0f);
+							posicao = Vector2f(1200.0f, 990.0f);
 						else
 						{
 							if (quantidade == 7)
-								posicao = Vector2f(1460.0f, 385.0f);
+								posicao = Vector2f(210.0f, 660.0f);
 						}
 
 					}
@@ -104,6 +109,7 @@ void Cerveja::setPosicao2()
 		}
 
 	}
+
 	objP.setPosition(posicao);
 }
-int Cerveja::quantidade = 0;
+int Prova::quantidade = 0;

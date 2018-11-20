@@ -24,38 +24,38 @@ void Prova::Inicializa()
 	objP.setTexture(&textura);
 	//objP.setFillColor(Color::Red);
 	objP.setSize(Vector2f(50.0f, 70.0f));
-	objP.setOrigin(objP.getSize() / 2.0f);
+	objP.setOrigin(objP.getSize()/2.0f);
 } 
 void Prova::setPosicao1()
 {
 	Vector2f posicao;
 	//setando a posicao
 	if (quantidade == 1)
-		posicao = Vector2f(90.0f, 340.0f);
+		posicao = Vector2f(90.0f, 305.0f);
 	else
 	{
 		if (quantidade == 2)
-			posicao = Vector2f(1415.0f, 180.0f);
+			posicao = Vector2f(1415.0f, 180.0f - 35.0f);
 		else
 		{
 			if (quantidade == 3)
-				posicao = Vector2f(1670.0f, 810.0f);
+				posicao = Vector2f(1670.0f, 810.0f - 35.0f);
 			else
 			{
 				if (quantidade == 4)
-					posicao = Vector2f(1805.0f, 1010.0f);
+					posicao = Vector2f(1805.0f, 1010.0f - 35.0f);
 				else
 				{
 					if (quantidade == 5)
-						posicao = Vector2f(690.0f, 1010.0f);
+						posicao = Vector2f(690.0f, 1010.0f - 35.0f);
 					else
 					{
 						if (quantidade == 6)
-							posicao = Vector2f(780.0f, 610.0f);
+							posicao = Vector2f(780.0f, 610.0f - 35.0f);
 						else
 						{
 							if (quantidade == 7)
-								posicao = Vector2f(340.0f, 1010.0f);
+								posicao = Vector2f(340.0f, 1010.0f - 35.0f);
 						}
 
 					}
@@ -76,31 +76,31 @@ void Prova::setPosicao2()
 	Vector2f posicao;
 	//setando a posicao
 	if (quantidade == 1)
-		posicao = Vector2f(470.0f, 285.0f);
+		posicao = Vector2f(470.0f, 285.0f - 35.0f);
 	else
 	{
 		if (quantidade == 2)
-			posicao = Vector2f(675.0f, 490.0f);
+			posicao = Vector2f(675.0f, 490.0f - 35.0f);
 		else
 		{
 			if (quantidade == 3)
-				posicao = Vector2f(400.0f, 660.0f);
+				posicao = Vector2f(400.0f, 660.0f - 35.0f);
 			else
 			{
 				if (quantidade == 4)
-					posicao = Vector2f(1770.0f, 260.0f);
+					posicao = Vector2f(1770.0f, 260.0f - 35.0f);
 				else
 				{
 					if (quantidade == 5)
-						posicao = Vector2f(1420.0f, 520.0f);
+						posicao = Vector2f(1420.0f, 520.0f - 35.0f);
 					else
 					{
 						if (quantidade == 6)
-							posicao = Vector2f(1200.0f, 990.0f);
+							posicao = Vector2f(1200.0f, 990.0f - 35.0f);
 						else
 						{
 							if (quantidade == 7)
-								posicao = Vector2f(210.0f, 660.0f);
+								posicao = Vector2f(210.0f, 660.0f - 35.0f);
 						}
 
 					}
